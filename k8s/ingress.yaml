@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: esme-app-ingress
+  namespace: esme-tp-diascosta
+  annotations:
+    kubernetes.io/ingress.class: nginx
+spec:
+  rules:
+  - host: esme-tp-diascosta.local   
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: esme-app-lb
+            port:
+              number: 80
