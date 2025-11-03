@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: esme-app
-        image: thomasdcosta/esme-app:v1.0
+        image: thomasdcosta/esme-app:v2.0
         ports:
         - containerPort: 3000
         resources:
@@ -37,3 +37,6 @@ spec:
             port: 3000
           initialDelaySeconds: 15
           periodSeconds: 20
+        envFrom:
+        - configMapRef:
+            name: esme-app-config
